@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>贪吃蛇</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1 class="title">贪吃蛇</h1>
+      <div class="controls-row">
+        <div class="score">分数：<span id="score">0</span></div>
+        <div class="controls">
+          <button id="btn-start" class="btn">开始/重开</button>
+          <button id="btn-pause" class="btn">暂停</button>
+        </div>
+      </div>
+      <div class="theme-row">
+        <label for="theme-select">主题：</label>
+        <select id="theme-select" class="select">
+          <option value="teal" selected>青绿（默认）</option>
+          <option value="dark">深色</option>
+          <option value="light">浅色</option>
+          <option value="sunset">日落橙</option>
+          <option value="forest">森林绿</option>
+          <option value="ocean">海洋蓝</option>
+          <option value="grape">葡萄紫</option>
+        </select>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="board-wrap">
+        <canvas id="board" width="480" height="480" aria-label="游戏画布"></canvas>
+      </div>
+      <div class="mobile-controls" aria-label="移动控制">
+        <div class="pad-row">
+          <button class="pad pad-up" data-dir="up">▲</button>
+        </div>
+        <div class="pad-row">
+          <button class="pad pad-left" data-dir="left">◀</button>
+          <button class="pad pad-down" data-dir="down">▼</button>
+          <button class="pad pad-right" data-dir="right">▶</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div>方向键/WASD 控制方向，空格暂停/继续</div>
+    </footer>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
+
+
