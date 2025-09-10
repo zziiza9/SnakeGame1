@@ -12,6 +12,7 @@
       <h1 class="title">贪吃蛇</h1>
       <div class="controls-row">
         <div class="score">分数：<span id="score">0</span></div>
+        <div class="score">最高分：<span id="highscore">0</span></div>
         <div class="controls">
           <button id="btn-start" class="btn">开始/重开</button>
           <button id="btn-pause" class="btn">暂停</button>
@@ -27,7 +28,14 @@
           <option value="forest">森林绿</option>
           <option value="ocean">海洋蓝</option>
           <option value="grape">葡萄紫</option>
+          <option value="black">黑色</option>
+          <option value="pink">粉色</option>
         </select>
+      </div>
+      <div class="theme-row">
+        <label for="speed-range">速度：</label>
+        <input id="speed-range" class="range" type="range" min="1" max="10" value="6" />
+        <span id="speed-label">6</span>
       </div>
     </header>
 

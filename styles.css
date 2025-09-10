@@ -1,0 +1,95 @@
+:root {
+  --bg: #0f2727;
+  --panel: #113637;
+  --text: #e7ffff;
+  --primary: #2dd4bf; /* 青绿 */
+  --snake: #34d399;
+  --food: #f59e0b;
+  --grid: rgba(255,255,255,0.06);
+}
+
+/* 主题：深色 */
+.theme-dark {
+  --bg: #0b0f14;
+  --panel: #131a22;
+  --text: #e5e7eb;
+  --primary: #38bdf8;
+  --snake: #22d3ee;
+  --food: #fb7185;
+  --grid: rgba(255,255,255,0.07);
+}
+
+/* 主题：浅色 */
+.theme-light {
+  --bg: #f7fafc;
+  --panel: #ffffff;
+  --text: #111827;
+  --primary: #14b8a6;
+  --snake: #10b981;
+  --food: #ef4444;
+  --grid: rgba(0,0,0,0.06);
+}
+
+/* 主题：日落、森林、海洋、葡萄 */
+.theme-sunset { --bg:#1b1310; --panel:#231813; --text:#ffe9d6; --primary:#fb923c; --snake:#f97316; --food:#facc15; --grid:rgba(255,255,255,0.06); }
+.theme-forest { --bg:#0d1a12; --panel:#112218; --text:#e6fff1; --primary:#22c55e; --snake:#86efac; --food:#f59e0b; --grid:rgba(255,255,255,0.06); }
+.theme-ocean  { --bg:#06141f; --panel:#0a1f2d; --text:#d9f2ff; --primary:#3b82f6; --snake:#22d3ee; --food:#f43f5e; --grid:rgba(255,255,255,0.06); }
+.theme-grape  { --bg:#130b1a; --panel:#1b1125; --text:#f5e9ff; --primary:#8b5cf6; --snake:#a78bfa; --food:#f472b6; --grid:rgba(255,255,255,0.06); }
+/* 新增：黑色与粉色主题 */
+.theme-black  { --bg:#000000; --panel:#0d0d0d; --text:#f0f0f0; --primary:#9ca3af; --snake:#e5e7eb; --food:#f59e0b; --grid:rgba(255,255,255,0.08); }
+.theme-pink   { --bg:#2a1521; --panel:#331a28; --text:#ffe4ef; --primary:#f472b6; --snake:#f9a8d4; --food:#facc15; --grid:rgba(255,255,255,0.06); }
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  color: var(--text);
+  background: radial-gradient(1200px 800px at 10% 10%, rgba(255,255,255,0.04), transparent) ,
+              radial-gradient(1000px 700px at 90% 20%, rgba(255,255,255,0.04), transparent),
+              radial-gradient(900px 900px at 50% 100%, rgba(255,255,255,0.03), transparent),
+              var(--bg);
+}
+
+.app { max-width: 960px; margin: 0 auto; padding: 16px; }
+.header { display: grid; gap: 8px; background: color-mix(in oklab, var(--panel) 96%, black 4%); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 12px 16px; backdrop-filter: blur(6px); }
+.title { margin: 0; font-size: 24px; letter-spacing: 2px; color: var(--primary); }
+.controls-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.theme-row { display: flex; align-items: center; gap: 8px; }
+
+.score { font-weight: 600; }
+.btn, .select, .pad, .range {
+  background: linear-gradient(180deg, color-mix(in oklab, var(--panel) 85%, black 15%), color-mix(in oklab, var(--panel) 70%, black 30%));
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: transform .06s ease, background .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.btn:hover, .pad:hover { transform: translateY(-1px); border-color: color-mix(in oklab, var(--primary) 50%, white 50%); box-shadow: 0 6px 18px -8px var(--primary); }
+.btn:active, .pad:active { transform: translateY(0); }
+.select { padding: 8px 10px; }
+.range { padding: 6px 8px; width: 180px; }
+
+.main { display: grid; gap: 12px; margin-top: 16px; }
+.board-wrap { display: grid; place-items: center; background: color-mix(in oklab, var(--panel) 92%, black 8%); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 12px; }
+
+canvas#board { width: 480px; height: 480px; image-rendering: pixelated; background: transparent; }
+
+.mobile-controls { display: grid; gap: 8px; place-items: center; margin-top: 8px; }
+.pad-row { display: grid; grid-template-columns: repeat(3, 64px); gap: 8px; }
+.pad { height: 48px; font-size: 18px; }
+.pad-up { grid-column: 2 / 3; }
+.pad-left { grid-column: 1 / 2; }
+.pad-down { grid-column: 2 / 3; }
+.pad-right { grid-column: 3 / 4; }
+
+.footer { opacity: .8; text-align: center; margin-top: 8px; font-size: 12px; }
+
+@media (max-width: 560px) {
+  canvas#board { width: 360px; height: 360px; }
+  .pad-row { grid-template-columns: repeat(3, 56px); }
+}
+
+
